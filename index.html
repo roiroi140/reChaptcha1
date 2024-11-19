@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reChatcha test</title>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LewaYMqAAAAAJiYyGAWZoeod56uzYyovPmgXS5m"></script>
+    <!-- Your code -->
 </head>
 <body>
     <h1>reChaptchaのテスト</h1>
     <p>mcid:</p>
-	<input type="text" name="name">
+    <input type="text" name="name">
+    <div class="g-recaptcha" data-callback="clearcall" data-sitekey="6LewaYMqAAAAAJiYyGAWZoeod56uzYyovPmgXS5m"></div>
+<script>
+  function onClick(e) {
+    e.preventDefault();
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LewaYMqAAAAAJiYyGAWZoeod56uzYyovPmgXS5m', {action: 'LOGIN'});
+    });
+  }
+</script>
 </body>
 </html>
